@@ -128,7 +128,7 @@ export default function Services() {
             {/* AC Maintenance (Wide) */}
             <div className="md:col-span-3 relative rounded-2xl overflow-hidden shadow-lg min-h-[400px] flex flex-col justify-center p-8 md:p-12">
               <Image
-                src="/ac-maintenance-bg.png"
+                src="/ac-maintenance-bg.jpg"
                 alt="AC Maintenance Technician"
                 fill
                 className="object-cover"
@@ -226,7 +226,7 @@ export default function Services() {
               </div>
               <div className="w-full md:w-1/3 h-64 relative rounded-xl overflow-hidden bg-slate-100 shadow-md">
                 <Image
-                  src="/washing-machine.png"
+                  src="/washing-machine.jpg"
                   alt="Modern Washing Machine"
                   fill
                   className="object-cover"
