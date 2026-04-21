@@ -157,13 +157,22 @@ export default function Home() {
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">We don&apos;t just fix ACs; we restore your comfort fast with precision and transparency.</p>
           </div>
           
-          {/* Mobile/Tablet Swipeable Cards */}
-          <div className="lg:hidden flex overflow-x-auto snap-x snap-mandatory w-[calc(100%+2rem)] -mx-4 px-4 py-8 gap-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:none]">
-            {advantages.map((f, i) => (
-              <div key={i} className="snap-center shrink-0 first:ml-4 last:mr-4">
-                <AdvantageCard f={f} />
+          {/* Mobile/Tablet Marquee */}
+          <div className="lg:hidden relative flex overflow-hidden w-full group -mx-4 px-4 w-[calc(100%+2rem)] py-6">
+            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] active:[animation-play-state:paused] gap-6">
+              <div className="flex gap-6">
+                {advantages.map((f, i) => (
+                  <AdvantageCard key={i} f={f} />
+                ))}
               </div>
-            ))}
+              <div className="flex gap-6">
+                {advantages.map((f, i) => (
+                  <AdvantageCard key={`dup-${i}`} f={f} />
+                ))}
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-slate-50 to-transparent"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-slate-50 to-transparent"></div>
           </div>
 
           {/* Desktop Grid */}
