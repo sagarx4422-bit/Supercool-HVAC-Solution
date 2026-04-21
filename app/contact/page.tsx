@@ -183,7 +183,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Service Inquiries</p>
-                      <a href="mailto:supercoolhvacsolutions24@gmail.com" className="text-lg font-bold text-slate-900 hover:text-[#1A65FF] transition-colors">supercoolhvacsolutions24@gmail.com</a>
+                      <a href="mailto:supercoolhvacsolutions24@gmail.com" className="text-lg font-bold text-slate-900 hover:text-[#1A65FF] transition-colors break-all">supercoolhvacsolutions24@gmail.com</a>
                     </div>
                   </div>
 

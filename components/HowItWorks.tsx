@@ -84,78 +84,39 @@ export default function HowItWorks() {
           Four simple steps to get your AC running perfectly — fast, transparent, and stress-free.
         </p>
         
-        {/* Mobile/Tablet Marquee */}
-        <div className="md:hidden relative flex overflow-hidden w-full group -mx-4 px-4 w-[calc(100%+2rem)] py-4">
-          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] gap-6">
-            <div className="flex gap-6">
-              {steps.map((step) => (
-                <div 
-                  key={step.id} 
-                  onClick={() => setActiveStep(step.id === activeStep ? null : step.id)}
-                  className="w-[260px] sm:w-[300px] shrink-0 relative z-10 flex flex-col items-center cursor-pointer group"
-                >
-                  <div className={cn(
-                    "relative w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 transition-all duration-500 bg-[#0a0f1c]",
-                    activeStep === step.id 
-                      ? `${step.activeBorderClass} ${step.glowClass}` 
-                      : `${step.inactiveBorderClass} ${step.hoverBorderClass} ${step.hoverGlowClass}`,
-                    step.textColorClass
-                  )}>
-                    <step.icon className="w-6 h-6" />
-                    <div className={cn(
-                      "absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white transition-all duration-500",
-                      step.bgClass,
-                      activeStep === step.id 
-                        ? "scale-110 shadow-lg" 
-                        : "scale-100 group-hover:scale-110 group-hover:shadow-lg"
-                    )}>
-                      {step.num}
-                    </div>
-                  </div>
-                  <h3 className={cn(
-                    "text-lg font-bold mb-3 transition-colors duration-300",
-                    activeStep === step.id ? "text-white" : "text-slate-400 group-hover:text-white"
-                  )}>{step.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed max-w-[250px] group-hover:text-slate-400 transition-colors">{step.desc}</p>
+        {/* Mobile/Tablet Swipeable Cards */}
+        <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory w-[calc(100%+2rem)] -mx-4 px-4 py-8 gap-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:none]">
+          {steps.map((step) => (
+            <div 
+              key={step.id} 
+              onClick={() => setActiveStep(step.id === activeStep ? null : step.id)}
+              className="snap-center shrink-0 w-[260px] sm:w-[300px] relative z-10 flex flex-col items-center cursor-pointer group first:ml-4 last:mr-4"
+            >
+              <div className={cn(
+                "relative w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 transition-all duration-500 bg-[#0a0f1c]",
+                activeStep === step.id 
+                  ? `${step.activeBorderClass} ${step.glowClass}` 
+                  : `${step.inactiveBorderClass} ${step.hoverBorderClass} ${step.hoverGlowClass}`,
+                step.textColorClass
+              )}>
+                <step.icon className="w-6 h-6" />
+                <div className={cn(
+                  "absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white transition-all duration-500",
+                  step.bgClass,
+                  activeStep === step.id 
+                    ? "scale-110 shadow-lg" 
+                    : "scale-100 group-hover:scale-110 group-hover:shadow-lg"
+                )}>
+                  {step.num}
                 </div>
-              ))}
+              </div>
+              <h3 className={cn(
+                "text-lg font-bold mb-3 transition-colors duration-300",
+                activeStep === step.id ? "text-white" : "text-slate-400 group-hover:text-white"
+              )}>{step.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed max-w-[250px] group-hover:text-slate-400 transition-colors">{step.desc}</p>
             </div>
-            <div className="flex gap-6">
-              {steps.map((step) => (
-                <div 
-                  key={`dup-${step.id}`} 
-                  onClick={() => setActiveStep(step.id === activeStep ? null : step.id)}
-                  className="w-[260px] sm:w-[300px] shrink-0 relative z-10 flex flex-col items-center cursor-pointer group"
-                >
-                  <div className={cn(
-                    "relative w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 transition-all duration-500 bg-[#0a0f1c]",
-                    activeStep === step.id 
-                      ? `${step.activeBorderClass} ${step.glowClass}` 
-                      : `${step.inactiveBorderClass} ${step.hoverBorderClass} ${step.hoverGlowClass}`,
-                    step.textColorClass
-                  )}>
-                    <step.icon className="w-6 h-6" />
-                    <div className={cn(
-                      "absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white transition-all duration-500",
-                      step.bgClass,
-                      activeStep === step.id 
-                        ? "scale-110 shadow-lg" 
-                        : "scale-100 group-hover:scale-110 group-hover:shadow-lg"
-                    )}>
-                      {step.num}
-                    </div>
-                  </div>
-                  <h3 className={cn(
-                    "text-lg font-bold mb-3 transition-colors duration-300",
-                    activeStep === step.id ? "text-white" : "text-slate-400 group-hover:text-white"
-                  )}>{step.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed max-w-[250px] group-hover:text-slate-400 transition-colors">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#0a0f1c] to-transparent"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#0a0f1c] to-transparent"></div>
+          ))}
         </div>
 
         {/* Desktop Grid */}

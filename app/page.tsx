@@ -87,7 +87,7 @@ export default function Home() {
             </div>
             
             {/* Glassmorphism Form Card */}
-            <div className="absolute -bottom-10 -right-4 md:-bottom-12 md:-right-24 lg:-right-32 w-[calc(100%-2rem)] md:w-[400px] bg-white/80 backdrop-blur-xl border border-white/50 p-8 rounded-2xl shadow-2xl z-20">
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-12 md:-right-24 lg:-right-32 w-[calc(100%-2rem)] md:w-[400px] bg-white/80 backdrop-blur-xl border border-white/50 p-8 rounded-2xl shadow-2xl z-20">
               <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">Quick Service Request</h3>
               <form className="space-y-5" onSubmit={handleSubmit}>
                 <div>
@@ -157,22 +157,13 @@ export default function Home() {
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">We don&apos;t just fix ACs; we restore your comfort fast with precision and transparency.</p>
           </div>
           
-          {/* Mobile/Tablet Marquee */}
-          <div className="lg:hidden relative flex overflow-hidden w-full group -mx-4 px-4 w-[calc(100%+2rem)] py-6">
-            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] gap-6">
-              <div className="flex gap-6">
-                {advantages.map((f, i) => (
-                  <AdvantageCard key={i} f={f} />
-                ))}
+          {/* Mobile/Tablet Swipeable Cards */}
+          <div className="lg:hidden flex overflow-x-auto snap-x snap-mandatory w-[calc(100%+2rem)] -mx-4 px-4 py-8 gap-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:none]">
+            {advantages.map((f, i) => (
+              <div key={i} className="snap-center shrink-0 first:ml-4 last:mr-4">
+                <AdvantageCard f={f} />
               </div>
-              <div className="flex gap-6">
-                {advantages.map((f, i) => (
-                  <AdvantageCard key={`dup-${i}`} f={f} />
-                ))}
-              </div>
-            </div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-slate-50 to-transparent"></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-slate-50 to-transparent"></div>
+            ))}
           </div>
 
           {/* Desktop Grid */}
