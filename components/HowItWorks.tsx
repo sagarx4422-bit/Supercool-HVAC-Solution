@@ -87,7 +87,7 @@ export default function HowItWorks() {
         {/* Mobile/Tablet Marquee */}
         <div className="md:hidden relative flex overflow-hidden w-full group -mx-4 px-4 w-[calc(100%+2rem)] py-4">
           <div className="absolute top-12 left-0 right-0 h-[1px] bg-slate-800 z-0"></div>
-          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] active:[animation-play-state:paused] gap-6">
+          <div className="flex w-max animate-marquee active:[animation-play-state:paused] gap-6">
             <div className="flex gap-6">
               {steps.map((step) => (
                 <div 

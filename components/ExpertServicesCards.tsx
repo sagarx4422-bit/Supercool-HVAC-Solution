@@ -33,7 +33,7 @@ export default function ExpertServicesCards() {
     <div className="mb-16">
       {/* Mobile/Tablet Marquee */}
       <div className="lg:hidden relative flex overflow-hidden w-full group -mx-4 px-4 w-[calc(100%+2rem)] py-6">
-        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] active:[animation-play-state:paused] gap-6">
+        <div className="flex w-max animate-marquee active:[animation-play-state:paused] gap-6">
           <div className="flex gap-6">
             {services.map((s, i) => (
               <ServiceCard key={i} s={s} />
